@@ -1,0 +1,52 @@
+class GroceryItem:
+    # Constructor
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    # Member function to calculate total cost of item
+    def get_total_price(self):
+        return self.price * self.quantity
+
+    # Member function to display item details
+    def display_item(self):
+        print(f"Item: {self.name} | Price: {self.price} | Quantity: {self.quantity} | Total: {self.get_total_price()}")
+
+class GroceryShop:
+    # Member function to show a welcome message
+    def welcome_message(self):
+        print("===================================")
+        print("   Welcome to Venkatesh Grocery Shop")
+        print("===================================")
+
+    # Member function to calculate total bill
+    def calculate_bill(self, items):
+        total = 0
+        for item in items:
+            total += item.get_total_price()
+        return total
+
+# Main part
+# Create GroceryItem objects
+item1 = GroceryItem("Rice", 50.0, 2)
+item2 = GroceryItem("Sugar", 40.0, 1)
+item3 = GroceryItem("Milk", 25.0, 3)
+
+# Store them in a list
+items = [item1, item2, item3]
+
+# Create GroceryShop object
+shop = GroceryShop()
+
+# Show welcome message
+shop.welcome_message()
+
+# Display all items
+print("\nItems Purchased:")
+for item in items:
+    item.display_item()
+
+# Show total bill
+total_bill = shop.calculate_bill(items)
+print(f"\nTotal Bill Amount: {total_bill}")
